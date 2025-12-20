@@ -11,10 +11,5 @@ public class CheckCase {
         String res2 = (ch2 >= 'a' && ch2 <= 'z' ? "Lower Case" : " Not lower Case");
         System.out.println(res2);
 
-        System.out.println("Check Alphabet");
-        char
-
-
-
     }
 }
