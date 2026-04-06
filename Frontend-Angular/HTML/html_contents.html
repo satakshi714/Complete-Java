@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Notes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        details {
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+        }
+        span.note {
+            color: gray;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body id="main-body" class="page" style="color: brown;">
+
+    <div id="div1">
+
+        <h1 id="heading1" class="title">HTML Formatting Tags, Global Attributes, and Inline Image</h1>
+        <details>
+            <summary>Global Attributes Used</summary>
+            <ul>
+                <li><b>id</b> → unique identifier</li>
+                <li><b>class</b> → grouping/styling</li>
+                <li><b>title</b> → tooltip on hover</li>
+                <li><b>style</b> → inline CSS</li>
+            </ul>
+        </details>
+        <br>
+        <hr>
+
+        <details>
+            <summary>Formatting Tags Explanation</summary>
+        <p class="text">
+            This is <b>bold</b> text <br>
+            This is <i>italic</i> text <br>
+            This is <u>underlined</u> text <br>
+            This is <mark>highlighted</mark> text <br>
+            This is <del>deleted</del> text <br>
+            This is H<sub>2</sub>O using subscript <br>
+            This is X<sup>2</sup> using superscript
+        </p>
+        </details>
+    </div>
+    <br>
+    <hr>
+    
+    <h1 id="semantics">Semantic Tag</h1>
+    <details>
+        <summary> Semantic Tags</summary>
+        <p>
+            Semantic tags describe meaning of content.
+            Example: nav, header, footer, section.
+        </p>
+        <p>
+            <li>head/header</li>
+            <li>detail</li>
+            <li>aside</li>
+            <li>main, mark</li>
+            <li>nav</li>
+            <li>section, summary</li>
+            <li>table</li>
+            <li>article</li>                
+            <li>form, footer</li>
+            <li>figcaption</li>
+        </p>
+    </details>
+    <br>
+    <hr>
+
+    <nav>
+        <h1 id="nav">Nav Tag</h1>
+        <details>
+            <summary>Nav tag</summary>
+            <h3>Nav tag is used for navigation links</h3>
+        </details>
+    </nav>
+    <br>
+    <hr>
+
+    <h1 id="anchor">Anchor Tag</h1>
+    <details>
+        <summary>Anchor Tag</summary>
+        <p>
+            Used for navigation between pages or within same page using href.
+        </p>
+    </details>
+    <a href="#Home">HOME</a><br>
+    <p id="Home">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <a href="#About">ABOUT</a><br>
+    <p id="About">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <a href="#Footer">FOOTER</a>
+    <p id="Footer">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <br>
+    <hr>
+
+    <h1>Download Image</h1>
+    <details>
+        <summary>Download Attribute</summary>
+        <p>Used to download a file instead of opening it.</p>
+    </details>
+    <a href="./img.png" download="img">Download Image</a>
+    <br>
+    <hr>
+
+    <h1>Target Attribute</h1>
+    <details>
+        <summary>Target Attribute</summary>
+        <p>
+            target="_blank" opens link in new tab.
+        </p>
+    </details>
+    <a href="https://www.amazon.in" target="_blank">Amazon</a>
+    <br>
+    <hr>
+
+    <h1>List</h1>
+    <details>
+        <summary>Ordered List</summary>
+        <p>
+            type="i" → roman numbers<br>
+            start="5" → starts from 5<br>
+            reversed → reverse order
+        </p>
+    </details>
+    <h4>web-tech ordered list</h4>
+    <ol type="i" start="5" reversed>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+        <li>typescript</li>
+    </ol>
+     <details>
+        <summary>Unordered List</summary>
+    </details>
+    <h4>web-tech unordered list</h4>
+    <ul type="square">
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+        <li>typescript</li>
+    </ul>
+    <details>
+        <summary>Nested List</summary>
+    </details>
+    <h4>web-tech nested list</h4>
+    <ul type="circle">
+        <li>html</li>
+        <ol>
+            <li>Tags</li>
+            <ul>
+                <li>Paired tags</li>
+                <li>Unpaired tags</li>
+            </ul>
+            <li>Formatting tags</li>
+            <ul>
+                <li>bold</li>
+                <li>italic</li>
+                <li>underline</li>
+                <li>strike(del)</li>
+                <li>mark</li>
+                <li>sub</li>
+                <li>sup</li>
+            </ul>
+            <li>Attributes</li>
+            <ul>
+                <li>Global Attributes</li>
+                <ul>
+                    <li>id</li>
+                    <li>class</li>
+                    <li>style</li>
+                    <li>title</li>
+                </ul>
+                <li>Element specific attributes</li>
+                <ul>
+                    <li>start</li>
+                    <li>reversed(no value attribute)</li>
+                    <li>type</li>
+                </ul>
+                
+            </ul>
+            <li>Elements</li>
+            <ul>
+                <li>Block level element</li>
+                <li>Inline element</li>
+                <li>Inline Block elements</li>
+                <ul>
+                    <li>Image</li>
+                    <li>Video</li>
+                    <li>Audio</li>
+                </ul>
+            </ul>
+            <li>Lists</li>
+            <ul>
+                <li>Ordered</li>
+                <li>Unordered</li>
+            </ul>
+            <li>Semantics tags</li>
+            <ul>
+                <li>head/header</li>
+                <li>detail</li>
+                <li>aside</li>
+                <li>main, mark</li>
+                <li>nav</li>
+                <li>section, summary</li>
+                <li>table</li>
+                <li>article</li>
+                <li>form, footer</li>
+                <li>figcaption</li>
+            <li>Anchor tage</li>
+        </ol>
+    </ul>
+    <br>
+    <hr>
+
+    <h1>Media Tag</h1>
+    <details>
+        <summary>Image</summary>
+        <p>
+           It is an inline block element.
+        </p>
+    </details>
+    <img src="./img.png" alt="Sample Image" >
+    <details>
+        <summary>Image Link</summary>
+    </details>
+    <a href="amazon.com" target="_blank"><img src="./img.png" alt="amazon">click</a>
+    <details>
+        <summary>Video</summary>
+    </details>
+    <video src="./videoskeleton.mp4" height="200px" width="390px" controls muted loop></video>
+    <details>
+        <summary>Audio</summary>
+    </details>
+    <audio src="./audio.mp3" controls loop></audio>
+    <br>
+    <hr>
+
+    <h1>QR code</h1>
+    <details>
+        <summary>QR Code</summary>
+        <p>
+            Using api https://goqr.me/api/ create a qr code.
+        </p>
+    </details>
+    <a href="instagram.com" target="_blank"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.instagram.com/" alt="scan">scan</a>
+    <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.instagram.com/" alt="scan"> -->
+    <br>
+    <hr>
+
+    <h1>Table</h1>
+    <details>
+       <summary>Table</summary>
+       <p>A collection of rows and columns
+        Rowspan: It is used to merger 2 or mroe rows.
+        Colspan: It is used to merge 2 or more columns.
+       </p>
+    </details>
+    <table border="5">
+        <tr>
+            <td>Roll No.</td>
+            <td>Name</td>
+            <td>Subject</td>
+            <td>Branch</td>
+            <td>Domain</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Satakshi</td>
+            <td rowspan="2">HTML</td>
+            <td colspan="2">CSE</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Sky</td>
+            <td>CSE</td>
+            <td>IT</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Satakshi</td>
+            <td rowspan="2">HTML</td>
+            <td colspan>CSE</td>
+            <td>ML</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Satakshi</td>
+            <td rowspan="2">HTML</td>
+            <td colspan="3">CSE</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Satakshi</td>
+            <td rowspan="2">Angular</td>
+            <td>IT</td>
+            
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Sanjana</td>
+            <td colspan>CSE</td>
+            <td>Data Science</td>
+        </tr>
+    </table>
+    <br><hr>
+
+    <h1>Forms</h1>
+    <details>
+       <summary>Form</summary>
+       <p>Forms are used to get user data.
+        Types of input - text, button, checkbox.
+        Validation - Set of rules while filling the form.
+        disabled -disable any input field.
+        min, max - format yyyy-mm-dd
+       </p>
+    </details>
+    <fieldset>
+    <form>
+        <label for="name">UserName</label>
+        <input type="text" id="name" name="user" required 
+        placeholder="UserName" 
+        minlength="3" 
+        maxlength="6"/> <br> <br/>
+
+        <label for="email">Email</label>
+        <input type="email" name = "email"> <br> <br>
+
+        <label for="pass">Password</label>
+        <input type="password" name="pass"> <br> <br>
+
+        <label for="">Subject:</label> <br> <br>
+        <input type="checkbox" name="user" checked>
+        <label for="">HTML</label> <br> <br>
+        <input type="checkbox" name="user">
+        <label for="">CSS</label> <br><br>
+        <input type="checkbox" name=user>
+        <label for="">Java Script</label> <br> <br>
+
+        <label for="">Gender</label> <br> <br>
+
+        <label for="">Male</label> 
+        <input type="radio" name="Gender" value="Male"> <br> <br>
+        <label for="">Female</label> 
+        <input type="radio" name="Gender" value="Female"><br> <br>
+        <label for="">Other</label>
+        <input type="radio" name="Gender" value="Other"> <br> <br>
+
+        <label for="">Passout Date</label>
+        <input type="date" min="2025-01-01" max="2026-04-02"> <br><br>
+
+        <label for="file">Choose file</label>
+        <input type="file" name="file">
+        <br><br>
+
+        <label for="state">Select State</label>
+        <select name="state" id="">
+            <optgroup label="north">
+            <option value="">none</option>
+            <option value="">UP</option>
+            <option value="">MP</option>
+            <option value="">Delhi</option>
+            </optgroup>
+            <optgroup label="south">
+            <option value="">mumbai</option>
+            <option value="">chennai</option>
+            <option value="">hyderabad</option>
+            <option value="">pune</option>
+            </optgroup>
+        </select> <br><br>
+
+        <label for="range">Choose cost</label>
+        <input type="range" name="range" min="1" max="100"> <br><br>
+
+        <label for="">Feedback</label>
+        <textarea name="" id=""></textarea>
+        <br><br>
+        
+        <input type="button" value="click">
+        <input type="reset">
+        <input type="submit">
+    </form>
+    </fieldset>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

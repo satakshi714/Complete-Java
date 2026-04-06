@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Form</title>
+</head>
+<body>
+
+<fieldset>
+    <legend>Reservation Form</legend>
+
+    <form>
+        <table>
+            <td><label for="fname"><b>Name*</b></label></td>
+            <tr>
+                
+                <td>
+                    <input type="text" id="fname" name="fname" required
+                    placeholder="First Name"
+                    minlength="3" maxlength="6">
+                </td>
+                <td>
+                    <input type="text" id="lname" name="lname" required
+                    placeholder="Last Name">
+                </td>
+            </tr>
+                <td> <label for=""><b>Phone Number*</b></label></td>
+            <tr>
+                <td>
+                    <input type="number" placeholder="Ex-1234567890">
+                </td>
+            </tr>
+                <td><label for="email"><b>Email*</b></label></td>
+            <tr>
+                <td>
+                    <input type="email" id="email" name="email" placeholder="Enter MailId">
+                </td>
+            </tr>
+            
+            <tr>
+                <td><label for="fname"><b>Check in Date*</b></label></td>
+                <td><label for="lname"><b>Check out date*</b></label></td>
+            </tr>
+
+            <tr>
+                
+                <td>
+                    <input type="date">
+                </td>
+                <td>
+                    <input type="date">
+                </td>
+            </tr>
+            <td><label><b>Special Requirements:</b></label></td>
+            <tr>
+
+                <td>
+                    <textarea rows="3" cols="20"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+</fieldset>
+
+</body>
+</html>

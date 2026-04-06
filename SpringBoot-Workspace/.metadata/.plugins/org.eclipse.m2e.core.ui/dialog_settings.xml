@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\satak\Downloads\SpringBoot-Employee-CURD-RAM-20260305T101119Z-3-001\SpringBoot-Employee-CURD-RAM"/>
+			<item value="C:\Users\satak\Downloads\SpringBoot-CircuitBreaker-Resilience4j-20260406T055101Z-3-001\SpringBoot-CircuitBreaker-Resilience4j"/>
+			<item value="C:\Users\satak\Downloads\SB13-Springboot-GlobalException\SB14-Springboot-GlobalException\target\classes\META-INF\maven\com.capg.springboot\SB14-Springboot-GlobalException"/>
+			<item value="C:\Users\satak\Downloads\RabbitMQ-JMS-20260314T043752Z-3-001\RabbitMQ-JMS\target\classes\META-INF\maven\com.example\RabbitMQ-JMS"/>
+			<item value="C:\Users\satak\Downloads\Feign-OrderService-20260406T061032Z-3-001\Feign-OrderService"/>
+			<item value="C:\Users\satak\Downloads\SB14-Springboot-JWT-Authentication1-20260406T060821Z-3-001\SB14-Springboot-JWT-Authentication1"/>
+			<item value="C:\Users\satak\Downloads\SpringBoot-FileUpload-Download-20260406T055114Z-3-001\SpringBoot-FileUpload-Download"/>
+			<item value="C:\Users\satak\Downloads\Feign-OrderService-20260311T091538Z-3-001\Feign-OrderService\target\classes\META-INF\maven\com.example\Feign-OrderService"/>
+			<item value="C:\Users\satak\Downloads\Feign-ProductService-20260406T055044Z-3-001\Feign-ProductService"/>
+			<item value="C:\Users\satak\Downloads\SpringBoot-ActuatorSpringSecurity-20260406T055048Z-3-001\SpringBoot-ActuatorSpringSecurity"/>
+			<item value="C:\Users\satak\Downloads\SB12-SpringBoot-JPA-Product-Layers-20260406T055020Z-3-001\SB12-SpringBoot-JPA-Product-Layers"/>
+			<item value="C:\Users\satak\eclipse-workspace\Capgemini-Training\All-Capgemini-Workspace\Capgemini-Spring-Springboot-Workspace"/>
+			<item value="C:\Users\satak\eclipse-workspace\Capgemini-Training\All-Capgemini-Workspace\Capgemini-Spring-Springboot-Workspace\SB01-SpringBootApplication"/>
+			<item value="C:\Users\satak\eclipse-workspace\Capgemini-Training\All-Capgemini-Workspace\Capgemini-Spring-Springboot-Workspace\SB02-SpringBoot-MVC-Controller"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

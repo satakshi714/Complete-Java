@@ -1,0 +1,217 @@
+SQL> PROMPT ===== DO NOT CLOSE TERMINAL =====
+===== DO NOT CLOSE TERMINAL =====
+SQL> --WAQTD NAME OF THE EMPLOYEES EARNING SALARY MORE THAN
+SQL> --THE SALESMAN
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SAL > ALL (SELECT SAL FROM EMP WHERE JOB = 'SALESMAN');
+
+ENAME                                                                           
+----------                                                                      
+CLARK                                                                           
+BLAKE                                                                           
+JONES                                                                           
+SCOTT                                                                           
+FORD                                                                            
+KING                                                                            
+
+6 rows selected.
+
+SQL> --WAQTD DETAILS OF THE EMPLOYEES HIRED AFTER ALL THE CLERKS
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE HIREDATE > ALL (SELECT HIREDATE FROM EMP WHERE JOB = 'CLERK');
+
+no rows selected
+
+SQL> --WAQTD NAME AND SALARY FOR ALL THE EMPLOYEES IF THEY ARE
+SQL> --EARNING LESS THAN ATLEST A MANAGER
+SQL> SELECT ENAME, SAL
+  2  FROM EMP
+  3  WHERE SAL < ANY (SELECT SAL FROM EMP WHERE JOB = 'MANAGER');
+
+ENAME             SAL                                                           
+---------- ----------                                                           
+SMITH             800                                                           
+JAMES             950                                                           
+ADAMS            1100                                                           
+WARD             1250                                                           
+MARTIN           1250                                                           
+MILLER           1300                                                           
+TURNER           1500                                                           
+ALLEN            1600                                                           
+CLARK            2450                                                           
+BLAKE            2850                                                           
+
+10 rows selected.
+
+SQL> --WAQTD NAME AND HIREDATE OF EMPLOYEES HIRED BEFORE ALL
+SQL> --THE MANAGERS
+SQL> SELECT ENAME, HIREDATE
+  2  FROM EMP
+  3  WHERE HIREDATE < ALL (SELECT HIREDATE FROM EMP WHERE JOB = 'MANAGER');
+
+ENAME      HIREDATE                                                             
+---------- ---------                                                            
+WARD       22-FEB-81                                                            
+ALLEN      20-FEB-81                                                            
+SMITH      17-DEC-80                                                            
+
+SQL> --WAQTD NAMES OF THE EMPLOYEES HIRED AFTER ALL THE
+SQL> --MANAGERS AND EARNING SALARY MORE THAN ALL THE CLERKS
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE HIREDATE > ALL (SELECT HIREDATE FROM EMP WHERE JOB = 'MANAGER')
+  4  AND SAL > ALL (SELECT SAL FROM EMP WHERE JOB = 'CLERK');
+
+ENAME                                                                           
+----------                                                                      
+TURNER                                                                          
+FORD                                                                            
+SCOTT                                                                           
+KING                                                                            
+
+SQL> --WAQTD DETAILS OF THE EMPLOYEES WORKING AS CLERK AND
+SQL> --HIRED BEFORE ATLEST A SALESMAN
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE JOB = 'CLERK'
+  4  AND HIREDATE < ANY (SELECT HIREDATE FROM EMP WHERE JOB = 'SALESMAN');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+
+SQL> --WAQTD DETAILS OF EMPLOYEES WORKING IN ACCOUNTING OR
+SQL> --SALES DEPT
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE DEPTNO IN (
+  4  SELECT DEPTNO FROM DEPT
+  5  WHERE DNAME IN ('ACCOUNTING','SALES'));
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+9 rows selected.
+
+SQL> --WAQTD DEPARTMENT NAMES OF THE EMPOYEES WITH NAME
+SQL> --SMITH, KING AND MILLER
+SQL> SELECT DNAME
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (
+  4  SELECT DEPTNO FROM EMP
+  5  WHERE ENAME IN ('SMITH','KING','MILLER'));
+
+DNAME                                                                           
+--------------                                                                  
+RESEARCH                                                                        
+ACCOUNTING                                                                      
+
+SQL> --WAQTD DETAILS OF EMPLOYEES WORKING NEWYORK OR CHICAGO
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE DEPTNO IN (
+  4  SELECT DEPTNO FROM DEPT
+  5  WHERE LOC IN ('NEW YORK','CHICAGO'));
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+9 rows selected.
+
+SQL> --WAQTD EMP NAMES IF EMPLOYEES ARE HIRED AFTER ALL THE
+SQL> --EMPLOYEES OF DEPT 10
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE HIREDATE > ALL (
+  4  SELECT HIREDATE FROM EMP WHERE DEPTNO = 10);
+
+ENAME                                                                           
+----------                                                                      
+SCOTT                                                                           
+ADAMS                                                                           
+
+SQL> spool off

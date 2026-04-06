@@ -1,0 +1,25 @@
+INDEX VERSION 1.134+C:\Users\satak\Desktop\Complete Java\Junit-Mockito-Workspace\.metadata\.plugins\org.eclipse.jdt.core
+4293436637.index
+1557541618.index
+864257604.index
+1100899242.index
+2049363403.index
+1783474393.index
+3577487322.index
+156225295.index
+3816292242.index
+1043299557.index
+2822402600.index
+4271238801.index
+2287783855.index
+3910567405.index
+227098666.index
+1691815819.index
+4204366510.index
+1604122862.index
+1865797976.index
+1293532266.index
+3551721873.index
+2545538775.index
+3434041635.index
+2898662674.index

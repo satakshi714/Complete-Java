@@ -1,0 +1,119 @@
+SQL> --1 WAQTD EMPLOYEE NAME AND HIS MANAGER'S NAME AND MANAGER'S MANAGER NAME IF EMPLOYEE IS WORKING AS CLERK
+SQL> SELECT E.ENAME AS EMPLOYEE_NAME,
+  2         M.ENAME AS MANAGER_NAME,
+  3         MM.ENAME AS MANAGER_MANAGER_NAME
+  4  FROM EMP E
+  5  JOIN EMP M ON E.MGR = M.EMPNO
+  6  JOIN EMP MM ON M.MGR = MM.EMPNO
+  7  WHERE E.JOB = 'CLERK';
+
+EMPLOYEE_N MANAGER_NA MANAGER_MA                                                
+---------- ---------- ----------                                                
+SMITH      FORD       JONES                                                     
+ADAMS      SCOTT      JONES                                                     
+MILLER     CLARK      KING                                                      
+JAMES      BLAKE      KING                                                      
+
+SQL> 
+SQL> 
+SQL> --2 WAQTD EMPLOYEE NAME & HIS DNAME AND MANAGER'S DESIGNATION AND HIS LOCATION IF MANAGER WORKS IN DEPT 10 OR 20
+SQL> SELECT E.ENAME AS EMPLOYEE_NAME,
+  2         D.DNAME AS EMP_DEPT_NAME,
+  3         M.JOB AS MANAGER_DESIGNATION,
+  4         DM.LOC AS MANAGER_LOCATION
+  5  FROM EMP E
+  6  JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+  7  JOIN EMP M ON E.MGR = M.EMPNO
+  8  JOIN DEPT DM ON M.DEPTNO = DM.DEPTNO
+  9  WHERE M.DEPTNO IN (10,20);
+
+EMPLOYEE_N EMP_DEPT_NAME  MANAGER_D MANAGER_LOCAT                               
+---------- -------------- --------- -------------                               
+MILLER     ACCOUNTING     MANAGER   NEW YORK                                    
+CLARK      ACCOUNTING     PRESIDENT NEW YORK                                    
+FORD       RESEARCH       MANAGER   DALLAS                                      
+ADAMS      RESEARCH       ANALYST   DALLAS                                      
+SCOTT      RESEARCH       MANAGER   DALLAS                                      
+JONES      RESEARCH       PRESIDENT NEW YORK                                    
+SMITH      RESEARCH       ANALYST   DALLAS                                      
+BLAKE      SALES          PRESIDENT NEW YORK                                    
+
+8 rows selected.
+
+SQL> 
+SQL> 
+SQL> --3 WAQTD NAME OF THE EMP AND MANAGER'S SALARY ALONG WITH MANAGER'S MANAGER HIREDATE IF MANAGER'S MANAGER EARN MORE THAN 2300
+SQL> SELECT E.ENAME AS EMPLOYEE_NAME,
+  2         M.SAL AS MANAGER_SALARY,
+  3         MM.HIREDATE AS MANAGER_MANAGER_HIREDATE
+  4  FROM EMP E
+  5  JOIN EMP M ON E.MGR = M.EMPNO
+  6  JOIN EMP MM ON M.MGR = MM.EMPNO
+  7  WHERE MM.SAL > 2300;
+
+EMPLOYEE_N MANAGER_SALARY MANAGER_M                                             
+---------- -------------- ---------                                             
+SMITH                3000 02-APR-81                                             
+ALLEN                2850 17-NOV-81                                             
+WARD                 2850 17-NOV-81                                             
+MARTIN               2850 17-NOV-81                                             
+SCOTT                2975 17-NOV-81                                             
+TURNER               2850 17-NOV-81                                             
+ADAMS                3000 02-APR-81                                             
+JAMES                2850 17-NOV-81                                             
+FORD                 2975 17-NOV-81                                             
+MILLER               2450 17-NOV-81                                             
+
+10 rows selected.
+
+SQL> 
+SQL> 
+SQL> --4 WAQTD EMP NAME AND MANAGER'S HIREDATE IF EMPLOYEE WAS HIRED BEFORE 1982 AND MANAGER'S MANAGER IS NOT EARNING ANY COMMISSION
+SQL> SELECT E.ENAME AS EMPLOYEE_NAME,
+  2         M.HIREDATE AS MANAGER_HIREDATE
+  3  FROM EMP E
+  4  JOIN EMP M ON E.MGR = M.EMPNO
+  5  JOIN EMP MM ON M.MGR = MM.EMPNO
+  6  WHERE EXTRACT(YEAR FROM E.HIREDATE) < 1982
+  7  AND MM.COMM IS NULL;
+
+EMPLOYEE_N MANAGER_H                                                            
+---------- ---------                                                            
+SMITH      03-DEC-81                                                            
+ALLEN      01-MAY-81                                                            
+WARD       01-MAY-81                                                            
+MARTIN     01-MAY-81                                                            
+TURNER     01-MAY-81                                                            
+JAMES      01-MAY-81                                                            
+FORD       02-APR-81                                                            
+
+7 rows selected.
+
+SQL> 
+SQL> 
+SQL> --5 WAQTD EMP NAME & HIS DEPT NAME AND MANAGER'S NAME & HIS DNAME WHERE MANAGER'S MANAGER EARNS MORE THAN MANAGER SALARY
+SQL> SELECT E.ENAME AS EMPLOYEE_NAME,
+  2         D.DNAME AS EMP_DEPT_NAME,
+  3         M.ENAME AS MANAGER_NAME,
+  4         DM.DNAME AS MANAGER_DEPT_NAME
+  5  FROM EMP E
+  6  JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+  7  JOIN EMP M ON E.MGR = M.EMPNO
+  8  JOIN DEPT DM ON M.DEPTNO = DM.DEPTNO
+  9  JOIN EMP MM ON M.MGR = MM.EMPNO
+ 10  WHERE MM.SAL > M.SAL;
+
+EMPLOYEE_N EMP_DEPT_NAME  MANAGER_NA MANAGER_DEPT_N                             
+---------- -------------- ---------- --------------                             
+MILLER     ACCOUNTING     CLARK      ACCOUNTING                                 
+FORD       RESEARCH       JONES      RESEARCH                                   
+SCOTT      RESEARCH       JONES      RESEARCH                                   
+JAMES      SALES          BLAKE      SALES                                      
+TURNER     SALES          BLAKE      SALES                                      
+MARTIN     SALES          BLAKE      SALES                                      
+WARD       SALES          BLAKE      SALES                                      
+ALLEN      SALES          BLAKE      SALES                                      
+
+8 rows selected.
+
+SQL> spool off

@@ -1,0 +1,148 @@
+SQL> --WAQTD NUMBER OF EMPLOYEES WORKING IN EACH DEPARTEMENT
+SQL> --EXCEPT PRESIDENT.
+SQL> SELECT DEPTNO, COUNT(*) AS EMP_COUNT
+  2  FROM EMP
+  3  WHERE JOB <> 'PRESIDENT'
+  4  GROUP BY DEPTNO;
+
+    DEPTNO  EMP_COUNT                                                           
+---------- ----------                                                           
+        30          6                                                           
+        20          5                                                           
+        10          2                                                           
+
+SQL> --WAQTD TOTAL SALARY NEEDED TO PAY ALL THE EMPLOYEES IN EACH
+SQL> --JOB.
+SQL> SELECT JOB, SUM(SAL) AS TOTAL_SALARY
+  2  FROM EMP
+  3  GROUP BY JOB;
+
+JOB       TOTAL_SALARY                                                          
+--------- ------------                                                          
+CLERK             4150                                                          
+SALESMAN          5600                                                          
+PRESIDENT         5000                                                          
+MANAGER           8275                                                          
+ANALYST           6000                                                          
+
+SQL> --WAQTD NUMBER OF EMPLOYEEES WORKING AS MANAGER IN EACH
+SQL> --DEPARTMENT.
+SQL> SELECT DEPTNO, COUNT(*) AS MANAGER_COUNT
+  2  FROM EMP
+  3  WHERE JOB = 'MANAGER'
+  4  GROUP BY DEPTNO;
+
+    DEPTNO MANAGER_COUNT                                                        
+---------- -------------                                                        
+        30             1                                                        
+        20             1                                                        
+        10             1                                                        
+
+SQL> --WAQTD AVG SALARY NEEDED TO PAY ALL THE EMPLOYEES IN EACH
+SQL> --DEPARTMENT EXCLUDING THE EMPLOYEES OF DEPTNO 20.
+SQL> SELECT DEPTNO, AVG(SAL) AS AVG_SALARY
+  2  FROM EMP
+  3  WHERE DEPTNO <> 20
+  4  GROUP BY DEPTNO;
+
+    DEPTNO AVG_SALARY                                                           
+---------- ----------                                                           
+        30 1566.66667                                                           
+        10 2916.66667                                                           
+
+SQL> --WAQTD NUMBER OF EMPLOYEES HAVING CHARACTER 'A' IN THEIR
+SQL> --NAMES IN EACH JOB.
+SQL> SELECT JOB, COUNT(*) AS EMP_COUNT
+  2  FROM EMP
+  3  WHERE ENAME LIKE '%A%'
+  4  GROUP BY JOB;
+
+JOB        EMP_COUNT                                                            
+--------- ----------                                                            
+SALESMAN           3                                                            
+CLERK              2                                                            
+MANAGER            2                                                            
+
+SQL> --WAQTD NUMBER OF EMPLOYEES AND AVG SALARY NEEDED TO PAY
+SQL> --THE EMPLOYEES WHO SALARY IN GREATER THAN 2000 IN EACH DEPT.
+SQL> SELECT DEPTNO,
+  2         COUNT(*) AS EMP_COUNT,
+  3         AVG(SAL) AS AVG_SALARY
+  4  FROM EMP
+  5  WHERE SAL > 2000
+  6  GROUP BY DEPTNO;
+
+    DEPTNO  EMP_COUNT AVG_SALARY                                                
+---------- ---------- ----------                                                
+        30          1       2850                                                
+        20          3 2991.66667                                                
+        10          2       3725                                                
+
+SQL> --WAQDTD TOTAL SALARY NEEDED TO PAY AND NUMBER OF
+SQL> --SALESMANS IN EACH DEPT.
+SQL> SELECT DEPTNO,
+  2         COUNT(*) AS SALESMAN_COUNT,
+  3         SUM(SAL) AS TOTAL_SALARY
+  4  FROM EMP
+  5  WHERE JOB = 'SALESMAN'
+  6  GROUP BY DEPTNO;
+
+    DEPTNO SALESMAN_COUNT TOTAL_SALARY                                          
+---------- -------------- ------------                                          
+        30              4         5600                                          
+
+SQL> --WAQTD NUMBER OF EMPLOYEES WITH THEIR MAXIMUM SALARIES IN
+SQL> --EACH JOB.
+SQL> SELECT JOB,
+  2         COUNT(*) AS EMP_COUNT,
+  3         MAX(SAL) AS MAX_SALARY
+  4  FROM EMP
+  5  GROUP BY JOB;
+
+JOB        EMP_COUNT MAX_SALARY                                                 
+--------- ---------- ----------                                                 
+CLERK              4       1300                                                 
+SALESMAN           4       1600                                                 
+PRESIDENT          1       5000                                                 
+MANAGER            3       2975                                                 
+ANALYST            2       3000                                                 
+
+SQL> --WAQTD MAXIMUM SALARIES GIVEN TO AN EMPLOYEE WORKING IN
+SQL> --EACH DEPT.
+SQL> SELECT DEPTNO, MAX(SAL) AS MAX_SALARY
+  2  FROM EMP
+  3  GROUP BY DEPTNO;
+
+    DEPTNO MAX_SALARY                                                           
+---------- ----------                                                           
+        30       2850                                                           
+        20       3000                                                           
+        10       5000                                                           
+
+SQL> --WAQTD NUMBER OF TIMES THE SALARIES PRESENT IN EMPLOYEE
+SQL> --TABLE.
+SQL> SELECT SAL, COUNT(*) AS SALARY_COUNT
+  2  FROM EMP
+  3  GROUP BY SAL;
+
+       SAL SALARY_COUNT                                                         
+---------- ------------                                                         
+      2450            1                                                         
+      5000            1                                                         
+      1300            1                                                         
+      1250            2                                                         
+      2850            1                                                         
+      2975            1                                                         
+      1100            1                                                         
+      3000            2                                                         
+       800            1                                                         
+      1600            1                                                         
+      1500            1                                                         
+
+       SAL SALARY_COUNT                                                         
+---------- ------------                                                         
+       950            1                                                         
+
+12 rows selected.
+
+SQL> SPOOL OFF

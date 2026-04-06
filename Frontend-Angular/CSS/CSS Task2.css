@@ -1,0 +1,27 @@
+.box > li {
+    color: orange;
+}
+
+.box li ul li {
+    color: black;
+}
+
+.box ~ #id
+{
+    color: orange;
+}
+/* #id > li {
+    color: orange;
+} */
+.box > #p {
+    color: rgb(89, 170, 221);
+}
+
+.i > li{
+    color: green;
+ }
+.bb > li 
+{
+    color: red;
+}
+

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Notes with Definitions and Examples</title>
+
+    <style>
+        .internal-demo {
+            color: darkblue;
+            background-color: #dff6ff;
+            border: 2px solid darkblue;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        #internal-heading {
+            color: crimson;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>Complete CSS Notes</h1>
+        <p>
+            This page shows CSS notes with definition, syntax, and live examples.
+        </p>
+    </header>
+
+    <section class="notes-section">
+        <h2>1. Ways to Apply CSS</h2>
+
+        <div class="note-box">
+            <h3>Inline CSS</h3>
+            <p><strong>Definition:</strong> Inline CSS is written directly inside the HTML element using the <code>style</code> attribute.</p>
+            <p><strong>Example:</strong></p>
+            <p style="color: green; background-color: #eaffea; padding: 8px; border: 1px solid green;">
+                This is an inline CSS example.
+            </p>
+        </div>
+
+        <div class="note-box">
+            <h3>Internal CSS</h3>
+            <p><strong>Definition:</strong> Internal CSS is written inside the <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> section.</p>
+            <p><strong>Example:</strong></p>
+            <h4 id="internal-heading">This heading is styled using internal CSS.</h4>
+            <p class="internal-demo">This paragraph is also styled using internal CSS.</p>
+        </div>
+
+        <div class="note-box">
+            <h3>External CSS</h3>
+            <p><strong>Definition:</strong> External CSS is written in a separate <code>.css</code> file and linked using the <code>&lt;link&gt;</code> tag.</p>
+            <p><strong>Example:</strong> Almost everything else on this page is styled using the external file <code>style.css</code>.</p>
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <h2>2. Selectors</h2>
+
+        <div class="note-box">
+            <h3>Simple Selectors</h3>
+            <ul>
+                <li><strong>Tag Selector:</strong> Selects elements by tag name.</li>
+                <li><strong>ID Selector:</strong> Selects an element by unique id using <code>#</code>.</li>
+                <li><strong>Class Selector:</strong> Selects elements by class using <code>.</code>.</li>
+                <li><strong>Universal Selector:</strong> Selects all elements using <code>*</code>.</li>
+                <li><strong>Grouping Selector:</strong> Styles multiple selectors together using comma.</li>
+            </ul>
+        </div>
+
+        <div class="demo-area">
+            <h3 class="tag-demo">Tag Selector Example</h3>
+            <p id="id-demo">This paragraph is styled using ID selector.</p>
+            <p class="class-demo">This paragraph is styled using class selector.</p>
+            <p class="class-demo">This is another paragraph using the same class selector.</p>
+            <p class="group-demo">This paragraph is part of grouping selector.</p>
+            <div id="group-demo-box">This div is also part of grouping selector.</div>
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <h2>3. Combinator Selectors</h2>
+
+        <div class="note-box">
+            <h3>Definition</h3>
+            <p>Combinator selectors define relationships between elements.</p>
+            <ul>
+                <li><strong>Descendant Selector</strong> (<code>A B</code>): Selects all B inside A</li>
+                <li><strong>Child Selector</strong> (<code>A &gt; B</code>): Selects direct children B of A</li>
+                <li><strong>Adjacent Sibling Selector</strong> (<code>A + B</code>): Selects the immediate next sibling B after A</li>
+                <li><strong>General Sibling Selector</strong> (<code>A ~ B</code>): Selects all siblings B after A</li>
+            </ul>
+        </div>
+
+        <div class="demo-area">
+            <h3>Descendant and Child Selector Example</h3>
+
+            <ul class="box">
+                <li>Direct child list item 1</li>
+                <li>Direct child list item 2
+                    <ul>
+                        <li>Nested list item 1</li>
+                        <li>Nested list item 2</li>
+                    </ul>
+                </li>
+                <li id="p">Direct child with id p</li>
+            </ul>
+
+            <ul class="i">
+                <li>Green item 1</li>
+                <li>Green item 2</li>
+            </ul>
+
+            <ul class="bb">
+                <li>Red item 1</li>
+                <li>Red item 2</li>
+            </ul>
+
+            <h4 class="adjacent-title">Adjacent Sibling Demo</h4>
+            <p class="adjacent-para">This paragraph is selected by adjacent sibling selector.</p>
+
+            <div class="box2">Reference element for general sibling selector</div>
+            <p id="id">This paragraph is styled using general sibling selector.</p>
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <h2>4. Pseudo Classes</h2>
+
+        <div class="note-box">
+            <h3>Definition</h3>
+            <p>Pseudo classes style an element in a special state.</p>
+            <ul>
+                <li><code>:link</code> → unvisited link</li>
+                <li><code>:visited</code> → visited link</li>
+                <li><code>:active</code> → when clicked</li>
+                <li><code>:hover</code> → when mouse is over element</li>
+                <li><code>:focus</code> → when input is selected/focused</li>
+            </ul>
+        </div>
+
+        <div class="demo-area">
+            <a href="https://www.google.com" target="_blank">Google Link Example</a><br><br>
+            <input type="text" placeholder="Enter your name"><br><br>
+            <button>Hover Over Me</button>
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <h2>5. Pseudo Elements</h2>
+
+        <div class="note-box">
+            <h3>Definition</h3>
+            <p>Pseudo elements style specific parts of an element.</p>
+            <ul>
+                <li><code>::before</code> → adds content before element</li>
+                <li><code>::after</code> → adds content after element</li>
+                <li><code>::selection</code> → styles selected text</li>
+            </ul>
+        </div>
+
+        <div class="demo-area">
+            <ul class="pseudo-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+
+            <p class="selection-demo">
+                Select this text with your mouse to see the ::selection pseudo element effect.
+            </p>
+
+            <p class="before-demo">This line uses ::before</p>
+            <p class="after-demo">This line uses ::after</p>
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <h2>6. Attribute Selector</h2>
+
+        <div class="note-box">
+            <h3>Definition</h3>
+            <p>Attribute selectors select elements based on attributes and attribute values.</p>
+            <p><strong>Example Syntax:</strong> <code>[placeholder="enter name"]</code></p>
+        </div>
+
+        <div class="demo-area">
+            <input type="text" placeholder="enter name"><br><br>
+            <input type="text" placeholder="email"><br><br>
+            <input type="text" placeholder="enter naem">
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <h2>7. Color Values</h2>
+
+        <div class="note-box">
+            <h3>Definition</h3>
+            <p>CSS supports different ways to define colors.</p>
+            <ul>
+                <li><strong>Named Color:</strong> red, blue, green</li>
+                <li><strong>RGB:</strong> rgb(255, 0, 0)</li>
+                <li><strong>RGBA:</strong> rgba(255, 0, 0, 0.5)</li>
+                <li><strong>HEX:</strong> #ff0000</li>
+                <li><strong>HSL:</strong> hsl(0, 100%, 50%)</li>
+                <li><strong>HSLA:</strong> hsla(240, 100%, 50%, 0.5)</li>
+            </ul>
+        </div>
+
+        <div class="color-grid">
+            <div class="color-box named-color">Named Color</div>
+            <div class="color-box rgb-color">RGB</div>
+            <div class="color-box rgba-color">RGBA</div>
+            <div class="color-box hex-color">HEX</div>
+            <div class="color-box hsl-color">HSL</div>
+            <div class="color-box hsla-color">HSLA</div>
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <h2>8. Units in CSS</h2>
+
+        <div class="note-box">
+            <h3>Definition</h3>
+            <p>Units define the size of elements, text, spacing, width, and height.</p>
+
+            <h4>Absolute Units</h4>
+            <ul>
+                <li><code>cm</code> → centimeter</li>
+                <li><code>mm</code> → millimeter</li>
+                <li><code>px</code> → pixel</li>
+            </ul>
+
+            <h4>Relative Units</h4>
+            <ul>
+                <li><code>vw</code> → viewport width</li>
+                <li><code>vh</code> → viewport height</li>
+                <li><code>%</code> → percentage</li>
+                <li><code>em</code> → relative to parent font size</li>
+                <li><code>rem</code> → relative to root font size</li>
+            </ul>
+        </div>
+
+        <div class="demo-area">
+            <div class="unit-box mm-box">1mm height, 1vw width</div>
+            <div class="unit-box px-box">200px width</div>
+            <div class="unit-box percent-box">50% width</div>
+            <div class="unit-box em-box">2em padding text</div>
+            <div class="unit-box rem-box">1.5rem font size</div>
+            <div class="unit-box vh-box">10vh height</div>
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <h2>9. Original Selectors from Your Code</h2>
+
+        <div class="note-box">
+            <p><strong>From your CSS:</strong></p>
+            <ul>
+                <li><code>.box &gt; li</code> → select direct <code>li</code> children of <code>.box</code></li>
+                <li><code>.box li ul li</code> → select nested list items inside <code>.box</code></li>
+                <li><code>.box ~ #id</code> → select the element with id <code>id</code> that comes after <code>.box</code> as a sibling</li>
+                <li><code>.box &gt; #p</code> → select direct child with id <code>p</code> inside <code>.box</code></li>
+                <li><code>.i &gt; li</code> → direct child list items of class <code>i</code></li>
+                <li><code>.bb &gt; li</code> → direct child list items of class <code>bb</code></li>
+                <li><code>#container</code> → selects element with id <code>container</code></li>
+            </ul>
+        </div>
+
+        <div id="container"></div>
+        <p class="container-note">This tiny aqua box is styled using <code>#container</code>.</p>
+    </section>
+    
+    <section class="Background Properties">
+        <div class="note-box">
+            <p><strong>Background Color</strong></p>
+            <div class="bg color-box">This is the background color</div>
+            <p><strong>Background Image</strong></p>
+            <div class="bg img-box">This is the background Image</div>
+        </div>
+    </section>
+
+    <section class="border">
+        <div >
+             <div class="note-box">
+            <p>This is padding inside border</p>
+            <p>This is margin outside border</p>
+        </div>
+        </div>
+    </section>
+
+</body>
+</html>
