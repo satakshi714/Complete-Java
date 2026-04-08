@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<>
 
     <header class="page-header">
         <h1>Complete CSS Notes</h1>
@@ -291,6 +291,69 @@
         </div>
         </div>
     </section>
+
+    <section class="inline-block">
+        <div class="note-box">
+            <h3>Hello</h3>
+            <p id="ev">everyone</p>
+        </div>
+    </section>
+    <section class="postion">
+        <div class = "note-box">
+            <ul >
+                <li> static   → normal flow, no movement</li>
+                <li>relative → moves from its position, space kept</li>
+                <li>absolute → removed from flow, moves wrt parent</li>
+                <li>fixed    → removed, fixed to screen (viewport)</li>
+                <li>sticky   → normal → then sticks on scroll</li>
+            </ul>
+            <li>z-index controls which element appears on top when elements overlap(0-1000).</li>
+            <p class="static">This is static position</p>
+            <p class="relative">This is relative position</p>
+            <p class="absolute">This is absolute position</p>
+            <p class="sticky">This is sticky position</p>
+            <p class="fixed">This is fixed position</p>
+        </div>
+    </section>
+    <section class="layout">
+        <div class="note-box">
+            <ul>
+                <li>Flex</li>
+                <ol>
+                    <li>Flex Property: It will get applied for parent element</li>
+                    <li>Flex Item Property: It will get applied for the child element.</li>
+                </ol>
+                <li>Grid</li>
+                <ol>
+                    <li>Grid Property: It will get applied for parent element</li>
+                    <li>Grid Item Property: It will get applied for the child element.</li>
+                </ol>
+            </ul>
+            <div class="flex">
+                <div class="box b1">
+                    box1
+                </div>
+                <div class="box b2">
+                    box2
+                </div>
+            </div>
+            <div class="grid">
+                <div class="box b1">
+                    box1
+                </div>
+                <div class="box b2">
+                    box2
+                </div>
+                <div class="box">
+                    box3
+                </div>
+                <div class="box">
+                    box4
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
 </body>
 </html>

@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #dbe7e1;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: white;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.field {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 80px;
+}
+
+.option {
+    background: #f2f2f2;
+    padding: 8px;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.check {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background: #1a7f64;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

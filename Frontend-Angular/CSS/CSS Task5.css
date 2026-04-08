@@ -1,0 +1,50 @@
+body {
+    background-color: #f3e5d8;
+    font-family: Arial;
+}
+
+.card {
+    background: white;
+    width: 350px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.main-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+h2 {
+    margin-top: 15px;
+}
+
+.desc {
+    color: #555;
+}
+
+.prep {
+    background: #f8e7ef;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}

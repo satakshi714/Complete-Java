@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Grid Layout</title>
+
+<style>
+main {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 60px 1fr 60px;
+}
+
+.navbar {
+    background-color: violet;
+    display: flex;
+    grid-column: 1 / 4;
+    /* height: 50px;
+    width: 100vw; */
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+@media (max-width:800px) {
+    .navbar{
+        flex-direction: column;
+        height: 200px;
+        background-color: lavenderblush;
+    }
+}
+
+aside {
+    background-color: palevioletred;
+    text-align: center;
+}
+
+.container1 {
+    background-color: rebeccapurple;
+    text-align: center;
+}
+
+.container2 {
+    background-color: purple;
+    text-align: center;
+}
+
+footer {
+    background-color: lavender;
+    grid-column: 1 / 4;
+    text-align: center;
+}
+@media (max-width:600px) {
+    footer{
+        flex-direction: column;
+        height: 200px;
+        background-color: lavenderblush;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+    <nav class="navbar">
+        <div>home</div>
+        <div>about</div>
+        <div>contact</div>
+        <div>help</div>
+    </nav>
+
+    <!-- <aside>Aside</aside>
+    <div class="container1">Section 1</div>
+    <div class="container2">Section 2</div> -->
+
+    <footer>Footer</footer>
+
+</main>
+
+</body>
+</html>
