@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TypeScript Complete Notes</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#111827;
+      --soft:#1f2937;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --accent:#38bdf8;
+      --accent2:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --code:#0b1220;
+      --border:#334155;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#020617 0%, #0f172a 100%);
+      color:var(--text);
+      line-height:1.65;
+    }
+    .layout{
+      display:grid;
+      grid-template-columns:280px 1fr;
+      min-height:100vh;
+    }
+    aside{
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow:auto;
+      border-right:1px solid var(--border);
+      background:rgba(2,6,23,.92);
+      backdrop-filter:blur(8px);
+      padding:18px 16px 40px;
+    }
+    aside h2{
+      margin:0 0 8px;
+      font-size:1.1rem;
+      color:white;
+    }
+    aside p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    nav a{
+      display:block;
+      color:#cbd5e1;
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:8px;
+      margin-bottom:4px;
+      font-size:.94rem;
+    }
+    nav a:hover{
+      background:#172033;
+      color:white;
+    }
+    main{
+      padding:32px 28px 70px;
+    }
+    .hero{
+      background:linear-gradient(135deg,#0ea5e9 0%, #2563eb 45%, #7c3aed 100%);
+      padding:28px;
+      border-radius:18px;
+      margin-bottom:24px;
+      box-shadow:0 15px 40px rgba(0,0,0,.28);
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size:2rem;
+    }
+    .hero p{
+      margin:0;
+      max-width:900px;
+      color:#eff6ff;
+    }
+    .section{
+      background:rgba(17,24,39,.88);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:22px;
+      margin-bottom:22px;
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+    }
+    .section h2{
+      margin-top:0;
+      color:#f8fafc;
+      border-bottom:1px solid var(--border);
+      padding-bottom:10px;
+    }
+    .section h3{
+      color:#bae6fd;
+      margin-top:20px;
+    }
+    .section h4{
+      color:#86efac;
+      margin-top:16px;
+      margin-bottom:8px;
+    }
+    .flow{
+      background:#0b1220;
+      border-left:4px solid var(--accent);
+      padding:14px 16px;
+      border-radius:10px;
+      color:#dbeafe;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:#0b1220;
+      border:1px solid #22304a;
+      border-radius:14px;
+      padding:14px;
+    }
+    .card strong{
+      color:white;
+    }
+    ul,ol{padding-left:22px}
+    code{
+      background:#111827;
+      color:#fde68a;
+      padding:2px 6px;
+      border-radius:6px;
+    }
+    pre{
+      background:var(--code);
+      border:1px solid #23314a;
+      border-radius:12px;
+      padding:14px;
+      overflow:auto;
+      color:#dbeafe;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:12px 0;
+      overflow:hidden;
+      border-radius:12px;
+    }
+    th,td{
+      border:1px solid var(--border);
+      padding:10px 12px;
+      text-align:left;
+      vertical-align:top;
+    }
+    th{
+      background:#172033;
+      color:white;
+    }
+    .footer-note{
+      color:var(--muted);
+      font-size:.94rem;
+      margin-top:30px;
+    }
+    @media (max-width:900px){
+      .layout{grid-template-columns:1fr}
+      aside{
+        position:relative;
+        height:auto;
+        border-right:none;
+        border-bottom:1px solid var(--border);
+      }
+      main{padding:20px 16px 60px}
+      .hero{padding:22px}
+      .hero h1{font-size:1.6rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <h2>TS Notes Index</h2>
+      <p>Skeleton structure for complete TypeScript notes.</p>
+      <nav>
+        <a href="#intro">1. Introduction</a>
+        <a href="#setup">2. Setup and Compilation</a>
+        <a href="#js-vs-ts">3. JavaScript vs TypeScript</a>
+        <a href="#benefits">4. Features and Benefits</a>
+        <a href="#types">5. Basic Types</a>
+        <a href="#annotations">6. Type Annotations</a>
+        <a href="#inference">7. Type Inference</a>
+        <a href="#functions">8. Functions</a>
+        <a href="#objects">9. Object Types</a>
+        <a href="#arrays">10. Arrays and Tuples</a>
+        <a href="#enums">11. Enums</a>
+        <a href="#aliases">12. Type Aliases</a>
+        <a href="#interfaces">13. Interfaces</a>
+        <a href="#union">14. Union and Intersection Types</a>
+        <a href="#literal">15. Literal Types</a>
+        <a href="#any-unknown-never">16. any, unknown, never, void</a>
+        <a href="#assertion">17. Type Assertion</a>
+        <a href="#narrowing">18. Type Narrowing</a>
+        <a href="#optional">19. Optional and Default Parameters</a>
+        <a href="#generics">20. Generics</a>
+        <a href="#classes">21. Classes</a>
+        <a href="#access-modifiers">22. Access Modifiers</a>
+        <a href="#inheritance">23. Inheritance</a>
+        <a href="#abstract">24. Abstract Classes</a>
+        <a href="#readonly">25. Readonly and Static</a>
+        <a href="#modules">26. Modules</a>
+        <a href="#namespaces">27. Namespaces</a>
+        <a href="#decorators">28. Decorators</a>
+        <a href="#utility-types">29. Utility Types</a>
+        <a href="#tsconfig">30. tsconfig.json</a>
+        <a href="#dom">31. TypeScript with DOM</a>
+        <a href="#practice">32. Practice / Summary</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <h1>TypeScript Complete Notes</h1>
+        <p>
+          This page is a structured skeleton for building complete TypeScript notes in the same format as your JavaScript notes page. Fill each section with definitions, syntax, examples, edge cases, and practice snippets.
+        </p>
+      </section>
+
+      <section class="section" id="intro">
+        <h2>1. Introduction to TypeScript</h2>
+        <div class="flow">
+          Write overview here.
+        </div>
+        <div class="grid">
+          <div class="card"><strong>Definition</strong><br>TypeScript is a superset of JavaScript that adds static typing and advanced features.</div>
+          <div class="card"><strong>Created by</strong><br>Anders Hejlsberg in 2012 in Microsoft</div>
+          <div class="card"><strong>Main purpose</strong><br>To make JavaScript safer, scalable, and easier to maintain</div>
+          <div class="card"><strong>Used with</strong><br>Angular, react, Node.js</div>
+        </div>
+      </section>
+
+      <section class="section" id="setup">
+        <h2>2. Setup and Compilation</h2>
+        <div class="flow">
+            Install TypeScript
+npm install -g typescript
+Check installation
+tsc --version
+Create project folder
+mkdir ts-project
+cd ts-project
+Create TypeScript file
+index.ts
+Write code inside index.ts
+Compile TypeScript file
+tsc index.ts
+Run the generated JavaScript file
+node index.js
+        </div>
+        <pre>npm install -g typescript
+        tsc --version
+        tsc file.ts</pre>
+      </section>
+
+      <section class="section" id="js-vs-ts">
+        <h2>3. JavaScript vs TypeScript</h2>
+        <table>
+          <tr><th>Feature</th><th>JavaScript</th><th>TypeScript</th></tr>
+          <tr><td>Typing</td><td>Dynamic Type</td><td>Static Typed</td></tr>
+          <tr><td>Error checking</td><td>Runtime</td><td>Compile Time</td></tr>
+          <tr><td>OOPs</td><td>No OOPs support</td><td>Support OOPs concept</td></tr>
+          <tr><td>Typed</td><td>Loosly Typed</td><td>Strongly Typed</td></tr>
+          <tr><td>Language</td><td>Scripting</td><td>Programming</td></tr>
+          <tr><td>Use case</td><td>Small scale projects</td><td>Large scale projects</td></tr>
+        </table>
+      </section>
+
+      <section class="section" id="benefits">
+  <h2>4. Features and Benefits</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <strong>Static Typing</strong><br>
+      TypeScript allows you to define data types for variables, functions, and objects.
+      This helps catch type-related errors during development instead of runtime.
+      It makes code more predictable and reduces unexpected bugs.
+    </div>
+
+    <div class="card">
+      <strong>Better Tooling</strong><br>
+      Provides excellent IDE support like auto-completion, error hints, navigation,
+      and refactoring tools (especially in VS Code).
+      Improves developer productivity and code readability.
+    </div>
+
+    <div class="card">
+      <strong>Early Error Detection</strong><br>
+      Errors are caught during compilation instead of execution.
+      This reduces debugging time and prevents runtime crashes in applications.
+    </div>
+
+    <div class="card">
+      <strong>Scalability</strong><br>
+      TypeScript is ideal for large-scale applications.
+      It helps organize code using interfaces, modules, and strong typing,
+      making it easier to maintain and collaborate in teams.
+    </div>
+
+    <div class="card">
+      <strong>Better Code Maintainability</strong><br>
+      With clear type definitions and structure, code becomes easier to read,
+      update, and debug over time.
+    </div>
+
+    <div class="card">
+      <strong>Supports Modern JavaScript</strong><br>
+      TypeScript supports latest JavaScript features and compiles them
+      to older versions for browser compatibility.
+    </div>
+
+    <div class="card">
+      <strong>Object-Oriented Programming Support</strong><br>
+      Supports classes, interfaces, inheritance, access modifiers,
+      and other OOP concepts for better structure.
+    </div>
+
+    <div class="card">
+      <strong>Large Community and Ecosystem</strong><br>
+      Backed by Microsoft, widely used in modern frameworks,
+      and has strong community support.
+    </div>
+
+  </div>
+</section>
+
+      <section class="section" id="types">
+        <h2>5. Basic Types</h2>
+        <div class="flow">Explain primitive and special TS types here.</div>
+        <ul>
+          <li>number</li>
+          <li>string</li>
+          <li>boolean</li>
+          <li>null</li>
+          <li>undefined</li>
+          <li>bigint</li>
+          <li>symbol</li>
+        </ul>
+        <pre>let age: number = 21;
+let userName: string = "Sam";
+let isActive: boolean = true;</pre>
+      </section>
+
+      <section class="section" id="annotations">
+        <h2>6. Type Annotations</h2>
+        <div class="flow">Explicitly changing the type of value.</div>
+        <pre>let city: string = "Delhi";</pre>
+      </section>
+
+      <section class="section" id="inference">
+        <h2>7. Type Inference</h2>
+        <div class="flow">Automatically understand the type of value which is given by developer</div>
+        <pre>let score = 95;</pre>
+      </section>
+
+      <section class="section" id="functions">
+        <h2>8. Functions</h2>
+        <div class="flow">Explain function parameter types and return types.</div>
+        <pre>function add(a: number, b: number): number {
+  return a + b;
+}</pre>
+      </section>
+
+      <section class="section" id="objects">
+        <h2>9. Object Types</h2>
+        <div class="flow">Explain object typing here.</div>
+        <pre>let user: { name: string; age: number } = {
+  name: "Sam",
+  age: 21
+};</pre>
+      </section>
+
+      <section class="section" id="arrays">
+        <h2>10. Arrays and Tuples</h2>
+        <div class="flow">Explain arrays and tuples here.</div>
+        <pre>let nums: number[] = [1, 2, 3];
+let person: [string, number] = ["Sam", 21];</pre>
+      </section>
+
+      <section class="section" id="enums">
+        <h2>11. Enums</h2>
+        <div class="flow">Explain numeric and string enums here.</div>
+        <pre>enum Role {
+  Admin,
+  User
+}</pre>
+      </section>
+
+      <section class="section" id="aliases">
+        <h2>12. Type Aliases</h2>
+        <div class="flow">Explain reusable custom types here.</div>
+        <pre>type User = {
+  name: string;
+  age: number;
+};</pre>
+      </section>
+
+      <section class="section" id="interfaces">
+        <h2>13. Interfaces</h2>
+        <div class="flow">Explain interface structure and extension here.</div>
+        <pre>interface Student {
+  name: string;
+  age: number;
+}</pre>
+      </section>
+
+      <section class="section" id="union">
+        <h2>14. Union and Intersection Types</h2>
+        <div class="flow">Explain combining types here.</div>
+        <pre>let id: string | number = 101;</pre>
+      </section>
+
+      <section class="section" id="literal">
+        <h2>15. Literal Types</h2>
+        <div class="flow">Explain fixed-value types here.</div>
+        <pre>let direction: "left" | "right";</pre>
+      </section>
+
+      <section class="section" id="any-unknown-never">
+        <h2>16. any, unknown, never, void</h2>
+        <div class="flow">Explain special types here.</div>
+        <pre>let data: any;
+let value: unknown;
+function fail(): never {
+  throw new Error("Error");
+}</pre>
+      </section>
+
+      <section class="section" id="assertion">
+        <h2>17. Type Assertion</h2>
+        <div class="flow">Explain forcing type information here.</div>
+        <pre>let val: unknown = "hello";
+let len = (val as string).length;</pre>
+      </section>
+
+      <section class="section" id="narrowing">
+        <h2>18. Type Narrowing</h2>
+        <div class="flow">Explain typeof, instanceof, in, guards here.</div>
+        <pre>if (typeof value === "string") {
+  console.log(value.toUpperCase());
+}</pre>
+      </section>
+
+      <section class="section" id="optional">
+        <h2>19. Optional and Default Parameters</h2>
+        <div class="flow">Explain function parameter variations here.</div>
+        <pre>function greet(name: string, age?: number) {
+  console.log(name, age);
+}</pre>
+      </section>
+
+      <section class="section" id="generics">
+        <h2>20. Generics</h2>
+        <div class="flow">Explain generic reusable typing here.</div>
+        <pre>function identity&lt;T&gt;(value: T): T {
+  return value;
+}</pre>
+      </section>
+
+      <section class="section" id="classes">
+        <h2>21. Classes</h2>
+        <div class="flow">Explain class syntax here.</div>
+        <pre>class Person {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}</pre>
+      </section>
+
+      <section class="section" id="access-modifiers">
+        <h2>22. Access Modifiers</h2>
+        <div class="flow">Explain public, private, protected here.</div>
+      </section>
+
+      <section class="section" id="inheritance">
+        <h2>23. Inheritance</h2>
+        <div class="flow">Explain extends and super here.</div>
+      </section>
+
+      <section class="section" id="abstract">
+        <h2>24. Abstract Classes</h2>
+        <div class="flow">Explain abstract classes and methods here.</div>
+      </section>
+
+      <section class="section" id="readonly">
+        <h2>25. Readonly and Static</h2>
+        <div class="flow">Explain readonly fields and static members here.</div>
+      </section>
+
+      <section class="section" id="modules">
+        <h2>26. Modules</h2>
+        <div class="flow">Explain import/export here.</div>
+      </section>
+
+      <section class="section" id="namespaces">
+        <h2>27. Namespaces</h2>
+        <div class="flow">Explain namespace concept here.</div>
+      </section>
+
+      <section class="section" id="decorators">
+        <h2>28. Decorators</h2>
+        <div class="flow">Explain decorators here if needed.</div>
+      </section>
+
+      <section class="section" id="utility-types">
+        <h2>29. Utility Types</h2>
+        <div class="flow">Explain Partial, Required, Pick, Omit, Record, etc.</div>
+      </section>
+
+      <section class="section" id="tsconfig">
+        <h2>30. tsconfig.json</h2>
+        <div class="flow">Explain compiler options here.</div>
+        <pre>{
+  "compilerOptions": {
+    "target": "ES6",
+    "strict": true
+  }
+}</pre>
+      </section>
+
+      <section class="section" id="dom">
+        <h2>31. TypeScript with DOM</h2>
+        <div class="flow">Explain DOM typing and assertions here.</div>
+        <pre>const btn = document.getElementById("btn") as HTMLButtonElement;</pre>
+      </section>
+
+      <section class="section" id="practice">
+        <h2>32. Practice / Summary</h2>
+        <div class="flow">Add revision summary, common errors, and practice questions here.</div>
+        <p class="footer-note">
+          This is just the skeleton. Fill each section one by one without touching the overall layout.
+        </p>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
