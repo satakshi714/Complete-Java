@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>JavaScipt practice</title>
+</head>
+<body>
+    <button onclick="handleButton()">click</button>
+    <h1 onclick="handleButton()">click</h1> 
+    <form action="">
+        <select name="" id="" onchange="handleButton()">
+        <option value="">html</option>
+        <option value="">css</option>
+        <option value="">jss</option>
+        </select> 
+     </form>
+
+    <button id = "btn">submit</button> 
+   <input type="text" id="inp" name="">
+    <h1 id="head"></h1>
+    
+    <script>
+        function handleButton(){
+            console.log("success");
+        }
+        let btn = document.getElementById("btn")
+        btn.addEventListener("click", () => {
+            console.log("welcome");
+        })
+        console.log(btn);
+
+        let inp = document.getElementById("inp");
+        let head = document.getElementById("head");
+        inp.addEventListener("input", () =>{
+            head.textContent=inp.value;  
+            console.dir(inp);
+        })
+        console.dir(inp); 
+
+
+        // console.log("good morning");
+        // console.log("hii");
+        // browser
+        // console.log(window);
+        // non-browser
+        // var a;
+        // console.log(10 < 20 || "hii");
+        // console.log("hii" || 10 < 20 );
+        // console.log(10 > 20 && "hii");
+        // console.log("hii" && 10 > 20 );
+        // function demo(a, b){
+        //     console.log("hello");
+        //     console.log(a);
+        //     console.log(b);
+        //     return a;
+        // };
+        // let res = console.log(demo);
+        // console.log(res);
+        // demo(1000, false, 100);
+
+        // let f = function(){
+        //     console.log("hello");
+        // };
+        // f();
+
+    // debugger
+    // function Bank(){
+    //     let cb = 100;
+    //     function credit(){
+    //         let creditb = 500;
+    //         function total(){
+    //             let tb = cb + creditb;
+    //             console.log(tb);
+    //         }
+    //         total()
+    //     }
+    //     credit()
+    // }
+    // Bank();
+
+
+    // let a = 10;
+    // if(a < 10){
+    //     let b = 20;
+    //     console.log(b);
+    // }
+    // console.log(b);
+
+
+    // function demo(){
+    //     var a = 10;
+    // }
+    // demo();
+    // console.log(a);
+
+    // console.log(`this is addition of two numbers "10 + 10" = ${10+10}`);    
+    // console.log(`${10>20?"yes":"false"}`);    
+    // var name = "sam";
+    // var age = 12;
+    // console.log(`my name is ${name} and age is ${age}`);
+    // console.log("my name is ${name} and age is ${age}");
+
+    // var user = "  A-BC";
+    // console.log(user.length);
+    // console.log(user.toUpperCase());
+    // console.log(user.toLowerCase());
+    // console.log(user.split("-"));
+    // console.log(user.replace("-","!"));
+    // console.log(user.indexOf("C"));
+    // console.log(user.charCodeAt(2));
+    // console.log(user.at(2));
+    // console.log(user.includes('C'));
+    // console.log(user.trimStart());
+    // console.log(user.slice(0,3));
+
+    // let user = {
+    //     name: "sam",
+    //     age: 36,
+    //     isAlive: false,
+    //     salary:undefined,
+    //     height: null,
+    //     sub:["html", "css"],
+    //     address:{
+    //         state:"DC",
+    //         pincode:345456
+    //     }
+    // };
+
+    // console.log(user.address.pincode);
+
+    // console.log(Object.keys(user));
+    // console.log(Object.values(user));
+    // console.log(Object.entries(user));
+    // console.log(Object.seal(user));
+    // // user.address="NYC";
+
+    // console.log(Object.isSealed(user));
+    // Object.freeze(user);
+    // console.log(Object.isFrozen(user));
+
+    // //Nested object
+    // console.log(user.address.pincode);
+
+    // let arr = [10,20,30,40,50, 60];
+    // console.log(arr);
+    // for(let a of arr){console.log(a);}
+
+    // let arr = [10,20,30,40,50, 60];
+    // console.log(arr);
+    // for(let a in arr){console.log(a);}
+
+        // let obj = {
+        //     username:"abc",
+        //     lastname:"xyz",
+        //     age:21
+        // }
+        // for(let a in obj){
+        //     console.log(a);
+        // }
+
+
+    // Rest - Packing (...a). It should be at the last. Stores in array
+    // Spread - Unpack an array
+    // function demo(x,y,...a){
+    //     console.log(x,a,y);
+    // }
+    // demo("hello", "hi", "bye");
+
+    // let ar1=["hi", "hello"];
+    // console.log(...ar1);
+
+        // function demo1(x,y){
+        //     console.log(x,y);
+        //     console.log(Array.apply);
+        // }
+
+        // let [a,b,c] = [10,20,30,40,50];
+        // console.log(a,b,...c);
+
+        // let {address} = {
+        //     username:"abc",
+        //     lastname:"xyz",
+        //     age:21,
+        //     address:{
+        //         state:"DC",
+        //         pincode:234345
+        //     }
+        // };
+        // let{state} = address;
+        // console.log(state);
+
+
+        // export function demo(){
+        //     console.log("value added");
+        // }
+
+        // export let obj = {
+        //     userdata:"ABC",
+        //     age:30
+        // };
+
+        // setTimeout(()=>{
+        //     console.log("timing function");
+        // },5000)
+
+        // function demo(){
+        //     console.log("demo funtion");
+        // }
+        // setTimeout(demo, 5000);
+
+        // let data=(a,b)=>{
+        //     console.log("hello");
+        //     console.log(a,b);
+        // }   
+        // let a = 5;
+        // console.log(a);
+        // setTimeout(data,10000, "hi", "bye");
+        // let b = 6;
+        // console.log(b);
+        // console.log(a);
+
+        // let count = 0;
+        // let val = setInterval(()=>{
+        //     console.log("interval function");
+        //     console.log(count);
+        //     if(count > 10){
+        //         clearInterval(val);
+        //     }
+        //     count++;
+        // },5000)
+
+                
+        // let promiseData = new Promise((res, rej) => {
+        //     const success = false;
+        //     setTimeout(() => {
+        //         if(success){
+        //             res("success in fetching data");
+        //         }else{
+        //             rej("Error");
+        //         }
+        //     }, 2000);
+        // });
+        // promiseData.then((a) => {
+        //     console.log(a);
+        // });
+
+        // promiseData.catch((b) => {
+        //     console.log(b);
+        // });
+
+        // promiseData.finally(() => {
+        //     console.log("Success");
+        // });
+
+        // let data = fetch("https://dummyjson.com/products")
+
+        // data
+        //     .then((a) => {
+        //         return a.json();
+        //     })
+        //     .then((b)=> { 
+        //         let val = b;
+        //         console.log(val.products);
+
+        //         val.products.forEach((a) => {
+        //             console.log(a);
+        //             console.log(a.title);
+        //         });
+        //     })
+        //     .catch((er) =>{
+        //         console.log(er);
+        //     });
+        //     console.log(data);
+
+        // async function demo() {
+        //     try{
+        //         let val = await fetch("https://dummyjson.com/products");
+        //         let data = await val.json();
+
+        //         console.log(val);
+        //         console.log(data);
+            
+        //     }catch(error){
+        //         console.log(error);
+        //     }
+        //     finally{
+        //         console.log("finally");
+        //     }
+        // }
+        // demo();
+        
+        // console.dir(windows);
+// let val = document.getElementById("link");
+// let cla = document.getElementsByClassName("inp");
+// // getElementByClassName - returns an array like object.
+
+// let out = [...cla];
+// console.log(out);
+
+// let head = document.getElementById("head");
+// let cre = document.createElement("mark");
+
+// function 
+ 
+
+    </script>
+</body>
+</html>
